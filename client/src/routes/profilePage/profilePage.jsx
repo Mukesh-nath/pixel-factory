@@ -43,6 +43,29 @@ function ProfilePage() {
             <span>
               E-mail: <b>{currentUser.email}</b>
             </span>
+            {currentUser.isBuilder ? (
+              <>
+                <span>
+                  Builder name: <b>{currentUser.builderName}</b>
+                </span>
+                <span>
+                  Website: <b>{currentUser.builderWebsite}</b>
+                </span>
+                <span>
+                  Address: <b>{currentUser.address}</b>
+                </span>
+
+                <span>
+                  No. of projects: <b>{currentUser.noOfProjects}</b>
+                </span>
+              </>
+            ) : (
+              <>
+                <span>
+                  Type of user: <b>{currentUser.typeOfUser}</b>
+                </span>
+              </>
+            )}
             <button onClick={handleLogout}>Logout</button>
           </div>
           <div className="title">
@@ -79,7 +102,7 @@ function ProfilePage() {
               resolve={data.chatResponse}
               errorElement={<p>Error loading chats!</p>}
             >
-              {(chatResponse) => <Chat chats={chatResponse.data}/>}
+              {(chatResponse) => <Chat chats={chatResponse.data} />}
             </Await>
           </Suspense>
         </div>
