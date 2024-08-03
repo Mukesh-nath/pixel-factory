@@ -28,8 +28,8 @@ model Post {
 }
 
 enum Type {
-  buy
-  rent
+  builder
+  Landowner
 }
 
 enum Property {
